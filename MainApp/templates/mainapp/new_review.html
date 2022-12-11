@@ -1,0 +1,15 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p> Add a new review for {{pizza}}: </p>
+
+<form action="{% url 'MainApp:new_review' pizza.id %}" method='post'>
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name="Submit">Submit Review</button>
+
+</form>
+
+{% endblock content %}
